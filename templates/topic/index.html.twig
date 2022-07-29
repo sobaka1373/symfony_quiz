@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello TopicController!{% endblock %}
+
+{% block body %}
+  <div class="container">
+    <div class="row" style="margin-top: 1rem">
+    {{ form_start(form) }}
+      {{ form_widget(form) }}
+    <button type="submit" class="btn btn-primary mb-2">Create topic</button>
+    {{ form_end(form) }}
+    </div>
+    <table class="table">
+      <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Text</th>
+        <th scope="col">Action</th>
+      </tr>
+      </thead>
+      <tbody>
+      {% for item in items %}
+      <tr>
+        <th colspan="1">{{ item.id }}</th>
+        <th colspan="2">{{ item.name }}</th>
+        <th colspan="3">
+          <a href="/topics/delete/{{ item.id }}">Delete</a>
+        </th>
+      </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}
